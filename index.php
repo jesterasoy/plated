@@ -1,3 +1,35 @@
+<?php
+$recipes = [
+  [
+    'title' => 'Barbecue Ribs',
+    'image' => './images/ribs.jpg',
+    'category' => 'Pizza',
+    'rating' => '★ ★ ★ ★ ★  5.0',
+    'description' => 'A delicious and easy-to-make pizza recipe perfect for any occasion.A delicious and easy-to-make pizza recipe perfect for any occasion. A delicious and easy-to-make pizza recipe perfect for any occasion.',
+  ],
+  [
+    'title' => 'Barbecue Ribs',
+    'image' => './images/ribs.jpg',
+    'category' => 'Pizza',
+    'rating' => '★ ★ ★ ★ ★  5.0',
+    'description' => 'A delicious and easy-to-make pizza recipe perfect for any occasion.A delicious and easy-to-make pizza recipe perfect for any occasion. A delicious and easy-to-make pizza recipe perfect for any occasion.',
+  ],
+  [
+    'title' => 'Barbecue Ribs',
+    'image' => './images/ribs.jpg',
+    'category' => 'Pizza',
+    'rating' => '★ ★ ★ ★ ★  5.0',
+    'description' => 'A delicious and easy-to-make pizza recipe perfect for any occasion.A delicious and easy-to-make pizza recipe perfect for any occasion. A delicious and easy-to-make pizza recipe perfect for any occasion.',
+  ],
+  [
+    'title' => 'Barbecue Ribs',
+    'image' => './images/ribs.jpg',
+    'category' => 'Pizza',
+    'rating' => '★ ★ ★ ★ ★  5.0',
+    'description' => 'A delicious and easy-to-make pizza recipe perfect for any occasion.A delicious and easy-to-make pizza recipe perfect for any occasion. A delicious and easy-to-make pizza recipe perfect for any occasion.',
+  ],
+];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,8 +53,24 @@
     .title {
       font-family: "Montserrat", sans-serif;
     }
+
+    .ellipsis {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+    }
+
+    .ellipsis2 {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+
+    }
   </style>
-  <title>Plated | Home</title>
+  <title>Plated</title>
 </head>
 
 <body>
@@ -53,23 +101,117 @@
 
 
       <section class="mt-5 text-center">
-        <a href="#recipes"
-          class="inline-block px-8 py-3 bg-orange-500 text-white font-semibold rounded-full shadow hover:bg-orange-600 transition-colors duration-200">
+        <a href=""
+          class="mt-4 mx-auto px-6 py-3 bg-orange-500 w-fit text-white font-bold rounded-full hover:bg-orange-600 transition duration-300 flex items-center gap-2">
           Explore More Recipes
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
         </a>
       </section>
     </section>
+
+    <!-- SECOND SECTION -->
+    <section class="poppins-thin mb-5">
+      <div class="p-6 max-w-6xl 2xl:max-w-7xl mx-auto">
+        <div class="border-l-8 border-orange-500">
+          <h1 class=" mx-3 font-bold text-4xl text-gray-900"> Trending <span class="">Recipes</span></h1>
+        </div>
+        <div class="grid grid-cols-2 pt-8 gap-8">
+
+          <div class="bg-white shadow-md">
+            <img src="./images/cagun_rice.jpg" alt="Cajun Rice" class="object-cover h-[300px] w-full" />
+            <div class="p-4">
+              <span class="text-sm text-gray-500 uppercase tracking-wide font-semibold">
+                Meal
+              </span>
+              <h2 class="text-2xl font-bold text-gray-900 title uppercase tracking-wide">Cajun Rice</h2>
+              <p class="text-gray-600 mt-2 mb-2">A spicy and flavorful rice dish with a blend of Cajun spices.</p>
+              <span class="text-yellow-500 font-medium text-sm">★ ★ ★ ★ ★ 5.0</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white shadow-md h-[300px]">
+              <img src="./images/roast_chick.jpg" alt="Garlic Herb Roast Chicken"
+                class="object-cover h-[150px] w-full" />
+              <div class="p-4">
+                <span class="uppercase text-xs text-gray-500 tracking-wide font-semibold"> Meal</span>
+                <h1 class="title uppercase truncate text-lg font-bold text-gray-900 tracking-wide">Garlic Herb Roast
+                  Chicken</h1>
+                <p class="text-gray-600 text-sm mt-1 mb-1 ellipsis">A spicy and flavorful rice dish with a blend of
+                  Cajun spices.
+                </p>
+                <span class="text-yellow-500 font-medium text-sm">★ ★ ★ ★ ★ 5.0</span>
+              </div>
+            </div>
+
+            <div class="bg-white shadow-md h-[300px]">
+              <img src="./images/roast_chick.jpg" alt="Garlic Herb Roast Chicken"
+                class="object-cover h-[150px] w-full" />
+              <div class="p-4">
+                <span class="uppercase text-xs text-gray-500 tracking-wide font-semibold"> Meal</span>
+                <h1 class="title uppercase truncate text-lg font-bold text-gray-900 tracking-wide">Garlic Herb Roast
+                  Chicken</h1>
+                <p class="text-gray-600 text-sm mt-1 mb-1 ellipsis">A spicy and flavorful rice dish with a blend of
+                  Cajun spices.
+                </p>
+                <span class="text-yellow-500 font-medium text-sm">★ ★ ★ ★ ★ 5.0</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="poppins-thin mb-5">
+      <div class="p-6 max-w-6xl 2xl:max-w-7xl mx-auto">
+        <div class="border-l-8 border-orange-500">
+          <h1 class="text-4xl font-bold mx-3 text-gray-900">Quick Recipes for Breakfast</h1>
+        </div>
+
+
+        <div class="grid grid-cols-3 gap-8">
+          <?php
+
+          foreach ($recipes as $recipe) {
+            ?>
+            <div class="pt-8 ">
+              <img src="<?= htmlspecialchars($recipe['image']) ?>" class="object-cover w-full h-[220px]" />
+              <div class="pt-4">
+                <span class="text-md text-gray-500 uppercase tracking-wide font-semibold">
+                  <?= htmlspecialchars($recipe['category']) ?>
+                </span>
+                <h1 class="title font-bold uppercase tracking-wide text-lg"><?= htmlspecialchars($recipe['title']) ?>
+                </h1>
+                <p class="text-gray-600 text-sm mt-1 mb-1 line-clamp-3">
+                  <?= htmlspecialchars($recipe['description']) ?>
+                </p>
+                <span class="text-yellow-500 font-medium text-sm"><?= htmlspecialchars($recipe['rating']) ?></span>
+
+              </div>
+            </div>
+            <?php
+          }
+          ?>
+        </div>
+
+
+      </div>
+    </section>
+
   </div>
+
+  <?php
+  include('./common/footer.php');
+
+  ?>
 </body>
 
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
-<script>
-
-</script>
 
 <script>
   const recipes = [
@@ -142,6 +284,10 @@
     const swiper = new Swiper('.mySwiper', {
       slidesPerView: 1,
       spaceBetween: 20,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
       breakpoints: {
         1280: {
           slidesPerView: 3,
