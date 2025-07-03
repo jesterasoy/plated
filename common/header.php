@@ -25,12 +25,12 @@
 </head>
 
 <body>
-  <div id="header-container" class="transition-all duration-200 ease-in-out">
+  <div id="header-container" class="transition-all duration-200 ease-in-out poppins-thin">
     <div class="p-6 max-w-6xl 2xl:max-w-7xl mx-auto">
       <div class="flex justify-between items-center">
-        <h1 class="font-bold text-2xl">
+        <a href="../index.php" class="font-bold text-2xl">
           <span class="text-orange-500">p</span>lated.
-        </h1>
+        </a>
 
         <div class="flex items-center space-x-4">
           <div class="relative w-full max-w-lg">
@@ -51,62 +51,9 @@
   </div>
 
 
-  <script>
-    const categoryButtons = document.getElementById("category-buttons");
-
-    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
-      .then((res) => res.json())
-      .then((data) => {
-        const categories = data.categories;
-        const count = categories.length;
-        console.log(data.categories);
+  <script src="./js/header.js"></script>
 
 
-        let allCategoryBlocks = `
-        <div class="relative group">
-          <p class="font-medium tracking-wide uppercase text-sm hover:text-orange-500 mb-2 cursor-pointer">
-            Categories
-          </p>
-          <div class="absolute left-0 top-4 mt-2 w-40 bg-white shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition duration-200 z-50">
-            ${categories
-            .slice(0, 5)
-            .map(
-              (item) => `
-                  <a href="/recipes?category=${encodeURIComponent(item.strCategory)}" class="block w-full text-left text-sm text-gray-700 hover:bg-gray-100 tracking-wide py-1">
-                    <p class="p-2">${item.strCategory}</p>
-                  </a>
-                `
-            )
-            .join("")}
-          </div>
-        </div>
-      `;
-
-        const finalHTML = `
-        <div class="flex gap-10 flex-wrap">
-          ${allCategoryBlocks}
-        </div>
-      `;
-
-        categoryButtons.innerHTML = finalHTML;
-      })
-      .catch((error) => {
-        console.error("Error fetching categories:", error);
-        categoryButtons.innerHTML = "<p class='text-red-500'>Failed to load categories.</p>";
-      });
-  </script>
-  <script>
-    const stickyHeader = document.getElementById("header-container");
-    const stickyOffset = stickyHeader.offsetTop;
-
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > stickyOffset) {
-        stickyHeader.classList.add("fixed", "w-full", "bg-white", "shadow-md", "z-50", "transition", "duration-200", "ease-in-out");
-      } else {
-        stickyHeader.classList.remove("fixed", "w-full", "bg-white", "shadow-md", "z-50", "transition", "duration-200", "ease-in-out");
-      }
-    });
-  </script>
 </body>
 
 </html>
