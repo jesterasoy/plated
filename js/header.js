@@ -9,6 +9,9 @@ if (!selectedCategory) {
     .then(data => {
       const categories = data.categories.slice(0, 5)
 
+      const allCategories = data.categories
+      localStorage.setItem('all-categories', JSON.stringify(allCategories))
+
       const allCategoryBlocks = `
           <div class="relative group">
             <p class="font-medium tracking-wide uppercase text-sm hover:text-orange-500 mb-2 cursor-pointer">

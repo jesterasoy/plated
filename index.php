@@ -59,9 +59,15 @@ $recipes = [
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
     .poppins-thin {
       font-family: "Poppins", sans-serif;
+      font-style: normal;
+    }
+
+    .lora {
+      font-family: "Lora", serif;
       font-style: normal;
     }
 
@@ -178,6 +184,7 @@ $recipes = [
       <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8" id="random_meal">
 
       </div>
+
     </div>
   </section>
 
@@ -219,10 +226,61 @@ $recipes = [
   <?php
   include('./common/footer.php');
   ?>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./js/index.js"></script>
+
+  <script>
+    const randomMeal = document.getElementById('random_meal')
+
+    fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+      .then(res => res.json())
+      .then(data => {
+        const meal = data.meals[0]
+        console.log(meal)
+        let ingredients = ''
+        for (let i = 1; i <= 5; i++) {
+          const ingredient = meal[`strIngredient${i}`]
+          const measure = meal[`strMeasure${i}`]
+          if (ingredient && ingredient.trim() !== '') {
+            ingredients += `<li class="mb-1 text-sm text-gray-700"> ${measure} ${ingredient}</li>`
+          }
+        }
+
+        const mealCard = `
+        <div class="flex flex-col sm:flex-row gap-6 items-start">
+          <div class="flex-shrink-0">
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}"
+              class="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] object-cover rounded-lg shadow" />
+          </div>
+
+          <div class="max-w-xl">
+            <span class="text-sm uppercase tracking-widest text-orange-400 font-semibold block mb-2">
+              ${meal.strCategory}
+            </span>
+          <a href="./pages/recipe.php?meal=${encodeURIComponent(
+          meal.strMeal
+        )}" class="text-2xl font-bold mb-5 hover:underline uppercase">
+            ${meal.strMeal}
+          </a>      
+          <ul class="mb-5 list-disc pl-5 pt-5">
+              ${ingredients}
+            </ul>
+
+            <span class="text-yellow-500 font-medium text-sm">★ ★ ★ ★ ★ 5.0</span>
+          </div>
+        </div>
+      `
+
+        randomMeal.innerHTML = mealCard
+      })
+      .catch(error => {
+        console.error('Error fetching meal:', error)
+        randomMeal.innerHTML =
+          "<p class='text-red-500'>Failed to load random meal.</p>"
+      })
+  </script>
+
 </body>
 
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="./js/index.js"></script>
-
